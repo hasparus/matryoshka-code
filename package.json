@@ -12,6 +12,7 @@
     "mdx-deck": "^2.3.2"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.10"
+    "@emotion/core": "^10.0.10",
+    "react-github-corner": "^2.3.0"
   }
 }
