@@ -1,7 +1,5 @@
 ﻿# [matryoshka-code.now.sh](matryoshka-code.now.sh)
 
----
-
 ## Links
 
 - John Carmack on inlined code
