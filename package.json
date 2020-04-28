@@ -5,8 +5,8 @@
   "scripts": {
     "start": "mdx-deck deck.mdx -p 1234",
     "dev": "npm run start",
-    "build": "mdx-deck build deck.mdx && copyfiles assets/* dist",
-    "serve": "npx serve dist",
+    "build": "mdx-deck build deck.mdx",
+    "serve": "npx serve public",
     "help": "mdx-deck"
   },
   "devDependencies": {
