@@ -1,9 +1,9 @@
 {
   "version": 2,
   "alias": "matryoshka-code.now.sh",
-  "builds": [{ "src": "dist/**/*", "use": "@now/static" }],
+  "builds": [{ "src": "public/**/*", "use": "@now/static" }],
   "routes": [
-    { "src": "/\\d/?", "dest": "/dist/" },
-    { "src": "/(.*)", "dest": "/dist/$1" }
+    { "src": "/\\d/?", "dest": "/public/" },
+    { "src": "/(.*)", "dest": "/public/$1" }
   ]
 }
