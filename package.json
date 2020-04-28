@@ -3,16 +3,18 @@
   "name": "matryoshka-code",
   "version": "2.3.2",
   "scripts": {
-    "start": "mdx-deck deck.mdx",
+    "start": "mdx-deck deck.mdx -p 1234",
+    "dev": "npm run start",
     "build": "mdx-deck build deck.mdx && copyfiles assets/* dist",
+    "serve": "npx serve dist",
     "help": "mdx-deck"
   },
   "devDependencies": {
-    "copyfiles": "^2.1.0",
-    "mdx-deck": "^2.3.2"
+    "copyfiles": "^2.2.0",
+    "mdx-deck": "^4.1.1"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.10",
+    "@emotion/core": "^10.0.28",
     "react-github-corner": "^2.3.0"
   }
 }
