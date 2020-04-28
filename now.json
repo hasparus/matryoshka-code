@@ -1,7 +1,14 @@
 {
   "version": 2,
   "alias": "matryoshka-code.now.sh",
-  "builds": [{ "src": "public/**/*", "use": "@now/static" }],
+  "builds": [
+    {
+      "use": "@now/static-build",
+      "config": {
+        "distDir": "public"
+      }
+    }
+  ],
   "routes": [
     { "src": "/\\d/?", "dest": "/public/" },
     { "src": "/(.*)", "dest": "/public/$1" }

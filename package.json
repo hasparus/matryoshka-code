@@ -6,6 +6,7 @@
     "start": "mdx-deck deck.mdx -p 1234",
     "dev": "npm run start",
     "build": "mdx-deck build deck.mdx",
+    "now-build": "npm run build",
     "serve": "npx serve public",
     "help": "mdx-deck"
   },
