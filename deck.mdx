@@ -1,5 +1,6 @@
 import { Global, css, jsx } from "@emotion/core";
 import { Head, Notes } from "mdx-deck";
+import { Grid, Box } from "theme-ui";
 
 import { theme as _theme } from "./theme";
 export const theme = _theme;
@@ -78,7 +79,11 @@ import videoSrc from "./assets/The Simpsons - S04E21 - Marge In Chains - Part 6 
 
 ---
 
-# What to do?
+## Use known abstractions
+
+Example: `reduce` folds a collection into one value
+
+---
 
 import inlineAbstractSrc from "./assets/inline-abstract.png";
 
@@ -96,6 +101,87 @@ import inlineAbstractSrc from "./assets/inline-abstract.png";
 
 ---
 
+#### problem: a long chain on the same level abstraction
+
+```ts
+CatsList
+-> (render -> (
+    (renderContent -> (
+      (renderCatsList -> (
+        (listItem -> JSX)
+        + JSX))
+      + JSX))
+    + JSX))
+```
+
+---
+
+#### step 1: inline
+
+```ts
+CatsList -> render -> JSX
+```
+
+---
+
+#### step 2: introduce indirection bottom-up
+
+```ts
+CatsList
+-> (render -> (
+     (CatsListItem -> JSX)
+     + (OutOfCatsButton -> JSX)
+     + JSX
+   ))
+```
+
+---
+
+export const arrowUp = (
+  <Box as="span" sx={{ fontFamily: "auto" }}>
+    ⬆&#xFE0F;
+  </Box>
+);
+
+<h3>
+  {arrowUp} Abstractions Bottom-Up {arrowUp}
+</h3>
+
+<Grid columns={[1, 2]} gap={'1em'} sx={{ h4: { textAlign: 'center' }}}>
+  <div>
+
+#### instead of making chains ⛓
+
+```
+A
+| B
+  | C
+    | D
+      | F
+        | G
+          | H
+```
+
+</div>
+<div>
+
+#### grow trees 🌲
+
+```
+A
+|  A1
+|  |  A1A
+|  |  A1B
+|  A2
+|  |  A2A
+|  |  A2B
+```
+
+</div>
+</Grid>
+
+---
+
 # Links
 
 - John Carmack on inlined code
@@ -104,6 +190,8 @@ import inlineAbstractSrc from "./assets/inline-abstract.png";
   http://betabug.ch/blogs/ch-athens/1352
 - Kent C. Dodds on avoiding hasty abstractions
   https://kentcdodds.com/blog/aha-programming
+- Sandi Metz on wrong abstractions
+  https://www.sandimetz.com/blog/2016/1/20/the-wrong-abstraction
 
 ---
 
@@ -118,6 +206,8 @@ import inlineAbstractSrc from "./assets/inline-abstract.png";
 <!-- thanks -->
 
 ![](https://media2.giphy.com/media/l3q2wJsC23ikJg9xe/giphy.gif)
+
+🐦 [@hasparus](https://twitter.com/hasparus)
 
 import GithubCorner from "react-github-corner";
 
